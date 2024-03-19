@@ -5,4 +5,6 @@
     <color name="transparent">#00FFFFFF</color>
     <color name="red">#FF0000</color>
     <color name="blue">#0000ff</color>
+    <color name="blueBackground">#ECF7FE</color>
+    <color name="blueButton">#1C79B9</color>
 </resources>

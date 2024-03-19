@@ -40,8 +40,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/like_icon"
-            android:layout_marginStart="5dp"
             android:background="@color/transparent"
+            />
+
+        <TextView
+            android:id="@+id/tvLike"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:layout_gravity="center"
+            android:layout_marginEnd="10dp"
+            android:textColor="@color/white"
             />
 
         <ImageButton
@@ -53,6 +62,16 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="12dp"/>
 
+        <TextView
+            android:id="@+id/tvDislike"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:layout_marginEnd="10dp"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            />
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -63,17 +82,17 @@
                 android:id="@+id/comment_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/baseline_mode_comment_24"
+                android:src="@drawable/comment"
                 android:background="@color/transparent"
                 android:layout_marginTop="10dp"
                 />
 
             <TextView
+                android:id="@+id/tvComment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
                 android:text="0"
-                android:textAlignment="center"
+                android:gravity="center"
                 android:textColor="@color/white"
                 />
 
@@ -84,7 +103,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/image_share"
-
             android:contentDescription="@string/share_button"
             android:background="@color/transparent"
             android:layout_marginTop="10dp"/>
