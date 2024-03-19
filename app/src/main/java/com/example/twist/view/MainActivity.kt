@@ -1,11 +1,10 @@
-package com.example.twist
+package com.example.twist.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.core.content.ContextCompat
 import androidx.viewpager2.widget.ViewPager2
-import com.example.ListVideoAdapter
-import com.example.Video
+import com.example.twist.view.adapter.ListVideoAdapter
+import com.example.twist.model.data.Video
 import com.example.twist.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
