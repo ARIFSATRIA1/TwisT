@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.ProfileFragment">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/editProfile_Btn"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="60dp"
+        android:text="Edit Profile"
+        android:textColor="@color/black"
+        android:textSize="9sp"
+        android:backgroundTint="@color/greyButton"/>
+
+    <ImageButton
+        android:id="@+id/settingsBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/baseline_settings_24"
+        app:layout_constraintStart_toEndOf="@id/editProfile_Btn"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="13dp"
+        android:background="@color/transparent"
+        android:layout_marginTop="15dp"/>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/profile_Img"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/profiles"
+        app:shapeAppearance="@style/Circular"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editProfile_Btn"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="40dp"
+        />
+
+    <TextView
+        android:id="@+id/tvUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tony 789"
+        app:layout_constraintStart_toEndOf="@id/profile_Img"
+        app:layout_constraintTop_toTopOf="@id/profile_Img"
+        app:layout_constraintBottom_toBottomOf="@id/profile_Img"
+        android:layout_marginStart="30dp"
+        android:textSize="20sp"
+        android:fontFamily="@font/nunito_black"
+        />
+
+    <TextView
+        android:id="@+id/tvFollowing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Following"
+        android:textSize="14sp"
+        android:fontFamily="@font/nunito_black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profile_Img"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="40dp"/>
+
+    <TextView
+        android:id="@+id/tvFollowers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Followers"
+        android:textSize="14sp"
+        android:fontFamily="@font/nunito_black"
+        app:layout_constraintStart_toEndOf="@id/tvFollowing"
+        app:layout_constraintTop_toBottomOf="@id/profile_Img"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="40dp"/>
+
+    <TextView
+        android:id="@+id/tvFollowingNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="15"
+        android:textSize="20sp"
+        android:fontFamily="@font/nunito_black"
+        app:layout_constraintEnd_toEndOf="@id/tvFollowing"
+        app:layout_constraintStart_toStartOf="@id/tvFollowing"
+        app:layout_constraintTop_toBottomOf="@id/tvFollowing"
+        android:layout_marginTop="10dp"
+        />
+
+    <TextView
+        android:id="@+id/tvFollowersNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="13"
+        android:textSize="20sp"
+        android:fontFamily="@font/nunito_black"
+        app:layout_constraintEnd_toEndOf="@id/tvFollowers"
+        app:layout_constraintStart_toStartOf="@id/tvFollowers"
+        app:layout_constraintTop_toBottomOf="@id/tvFollowers"
+        android:layout_marginTop="10dp"
+        />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tablayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvFollowingNum"
+        android:layout_marginTop="10dp"/>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tablayout"/>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

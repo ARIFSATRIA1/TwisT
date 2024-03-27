@@ -6,4 +6,22 @@
 
     </style>
 
+    <style name="stroke">
+        <item name="strokeWidth">10dp</item>
+        <item name="strokeColor">@color/black</item>
+    </style>
+
+
+    <style name="corner">
+        <item name="cornerSize">10dp</item>
+
+    </style>
+
+    <style name="buttomBar">
+        <item name="cornerSize">10dp</item>
+        <item name="android:startColor">#1D2939</item>
+        <item name="android:endColor">#51729F</item>
+        <item name="android:angle">180</item>
+    </style>
+
 </resources>
