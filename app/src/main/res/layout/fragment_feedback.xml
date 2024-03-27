@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.FeedbackFragment">
+
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:elevation="10dp"
+        >
+
+        <ImageButton
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_arrow_back_24"
+            android:background="@color/transparent"
+            android:layout_marginStart="20dp"
+            android:layout_gravity="center_vertical"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Notification  "
+            android:textStyle="bold"
+            android:fontFamily="@font/nunito_black"
+            android:textSize="18sp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20dp"/>
+
+
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="400dp"
+        app:cardBackgroundColor="@color/greyButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topBar"
+        app:cardCornerRadius="24dp"
+        android:layout_margin="20dp"
+        app:cardElevation="20dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_marginTop="14dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtEmail"
+                android:backgroundTint="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Email Address"
+                android:textSize="12sp"
+                android:inputType="textEmailAddress"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_marginTop="14dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtSubject"
+                    android:backgroundTint="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Subject"
+                    android:textSize="12sp"
+                    android:inputType="textEmailAddress"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_marginTop="14dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtTypeMessage"
+                    android:backgroundTint="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:hint="Type Message"
+                    android:textAlignment="center"
+                    android:paddingTop="-10dp"
+                    android:textSize="12sp"
+                    android:inputType="textEmailAddress"
+                    />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/nunito_regular"
+                    android:text="Send"
+                    android:textSize="20sp"
+                    android:layout_margin="10dp"
+                    app:backgroundTint="@color/blueButton" />
+
+        </LinearLayout>
+
+
+
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

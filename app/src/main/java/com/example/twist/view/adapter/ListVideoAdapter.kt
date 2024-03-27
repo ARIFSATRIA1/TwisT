@@ -15,7 +15,7 @@ class ListVideoAdapter(private val listVideo: ArrayList<Video>): RecyclerView.Ad
 
     class ListViewHolder(itemView: View):RecyclerView.ViewHolder(itemView) {
 
-         val videoView: VideoView = itemView.findViewById(R.id.videoViewPlay)
+         private val videoView: VideoView = itemView.findViewById(R.id.videoViewPlay)
         @SuppressLint("ClickableViewAccessibility")
         fun bindVideo (video: Video) {
             itemView.findViewById<TextView>(R.id.description).apply {
