@@ -10,5 +10,6 @@
     <color name="greyButton">#D9D9D9</color>
     <color name="pink">#DC9995</color>
     <color name="buttomBarColor">#1D2939</color>
-
+    <color name="blue_selector">#5DA1D0</color>
+    <color name="edtBackground">#ECF7FE</color>
 </resources>
