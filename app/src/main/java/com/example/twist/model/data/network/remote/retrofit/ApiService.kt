@@ -4,6 +4,7 @@ import androidx.annotation.RawRes
 import com.example.twist.model.data.network.remote.response.LoginResponse
 import com.example.twist.model.data.network.remote.response.RegisterResponse
 import com.example.twist.model.data.params.LoginRequest
+import com.example.twist.model.data.params.RegisterRequest
 import retrofit2.http.Body
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
@@ -16,17 +17,13 @@ interface ApiService {
 
 
     // Register Request
-    @FormUrlEncoded
+
     @POST("auth/register")
     suspend fun register (
-        @Field("fullname") fullname: String,
-        @Field("email") email: String,
-        @Field("password") password: String,
-        @Field("confirm_password") confirm_password: String
+        @Body registerRequest: RegisterRequest
     ): RegisterResponse
 
-    // Login Response
-
+    // Login Request
     @POST("auth/login")
     suspend fun login(
         @Body loginRequest: LoginRequest

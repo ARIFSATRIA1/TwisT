@@ -8,8 +8,10 @@ import com.example.twist.model.data.ResultState
 import com.example.twist.model.data.database.VideoDatabase
 import com.example.twist.model.data.network.remote.response.ErrorResponse
 import com.example.twist.model.data.network.remote.response.LoginResponse
+import com.example.twist.model.data.network.remote.response.RegisterResponse
 import com.example.twist.model.data.network.remote.retrofit.ApiService
 import com.example.twist.model.data.params.LoginRequest
+import com.example.twist.model.data.params.RegisterRequest
 import com.example.twist.model.data.preferences.TokenModel
 import com.example.twist.model.data.preferences.TokenPreferences
 import com.google.gson.Gson
@@ -38,6 +40,22 @@ class Repository (
         }
     }
 
+    fun registerUser(
+        fullname: String,
+        email: String,
+        password: String,
+        confirm_password: String
+    ): LiveData<ResultState<RegisterResponse>> = liveData {
+        emit(ResultState.Loading)
+        try {
+            val user = apiService.register(RegisterRequest(fullname, email, password, confirm_password))
+            emit(ResultState.Success(user))
+        } catch (e: HttpException) {
+            val errorBody = e.response()?.errorBody()?.string()
+            val errorResponse = Gson().fromJson(errorBody, ErrorResponse::class.java)
+            emit(ResultState.Error(errorResponse.message!!))
+        }
+    }
 
 
 

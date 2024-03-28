@@ -13,9 +13,9 @@
 
     <fragment
         android:id="@+id/navigation_upload"
-        android:name="com.example.twist.view.SignUpFragment"
+        android:name="com.example.twist.view.UploadFragment"
         android:label="Upload"
-        tools:layout="@layout/fragment_sign_up_" />
+        tools:layout="@layout/fragment_upload" />
 
     <fragment
         android:id="@+id/navigation_profile"

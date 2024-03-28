@@ -1,49 +1,43 @@
 package com.example.twist.view
 
-import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.viewModels
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import com.example.twist.R
-import com.example.twist.databinding.FragmentSignInBinding
+import com.example.twist.databinding.ActivitySignInBinding
 import com.example.twist.model.data.ResultState
 import com.example.twist.model.data.preferences.TokenModel
 import com.example.twist.viewmodel.SignInViewModel
 import com.example.twist.viewmodel.factory.ViewModelFactory
 
 
-class SignInFragment : Fragment(),View.OnClickListener {
+class SignInActivity : AppCompatActivity(),View.OnClickListener {
 
-    private lateinit var _binding : FragmentSignInBinding
+    private lateinit var _binding : ActivitySignInBinding
     private val binding get() = _binding!!
 
     private val viewModel by viewModels<SignInViewModel> {
-        ViewModelFactory.getInstance(requireContext())
+        ViewModelFactory.getInstance(this)
     }
 
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        _binding = ActivitySignInBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         binding.btnSignin.setOnClickListener {
             onClick(it)
         }
+
+        binding.tvLogin.setOnClickListener {
+            val intent = Intent(this@SignInActivity, SignUpActivity::class.java)
+            startActivity(intent)
+        }
     }
 
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View? {
-        // Inflate the layout for this fragment
-        _binding = FragmentSignInBinding.inflate(layoutInflater, container, false)
-        return binding.root
-    }
 
 
     override fun onClick(view: View) {
@@ -72,7 +66,7 @@ class SignInFragment : Fragment(),View.OnClickListener {
     }
 
     private fun loginUser(email: String, password: String) {
-        viewModel.loginUser(email, password).observe(viewLifecycleOwner) {result ->
+        viewModel.loginUser(email, password).observe(this) {result ->
             if (result != null) {
                 when (result) {
                     is ResultState.Loading -> {
@@ -82,21 +76,21 @@ class SignInFragment : Fragment(),View.OnClickListener {
                     is ResultState.Success -> {
                         showLoading(false)
                         viewModel.saveToken(TokenModel(result.data.data.token.token))
-                        androidx.appcompat.app.AlertDialog.Builder(requireContext()).apply {
+                        androidx.appcompat.app.AlertDialog.Builder(this).apply {
                             setTitle("Yeah")
                             setMessage("Login Successful")
                             setPositiveButton("Next") {_, _ ->
-                                val intent = Intent(requireContext(), HomeFragment::class.java)
+                                val intent = Intent(this@SignInActivity, SignUpActivity::class.java)
                                 startActivity(intent)
 
                             }
                         }
                             .create()
                             .show()
-                        Toast.makeText(requireContext(), result.data.message , Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, result.data.message , Toast.LENGTH_SHORT).show()
                     }
                     is ResultState.Error -> {
-                        Toast.makeText(requireContext(), result.error , Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, result.error , Toast.LENGTH_SHORT).show()
                     }
                 }
             }

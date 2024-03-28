@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".view.SignInFragment"
+    tools:context=".view.SignUpActivity"
     android:background="@color/blueBackground">
 
     <ProgressBar
@@ -16,16 +16,17 @@
         app:layout_constraintTop_toTopOf="parent"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"/>
-
+    
     <TextView
-        android:id="@+id/tvSignIn"
+        android:id="@+id/tvSignUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/sign_in"
+        android:text="@string/sign_up"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/nunito_regular"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:textSize="40sp"
-        android:fontFamily="@font/nunito_black"
         android:layout_marginTop="60dp"
         android:layout_marginStart="48dp"
         />
@@ -33,23 +34,45 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Log in with your data that you entered"
-        android:layout_gravity="center_horizontal"
-        app:layout_constraintTop_toBottomOf="@id/tvSignIn"
+        android:text="Welcome to our Apps! Please sign up here"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="10dp"
-        />
-    
+        app:layout_constraintTop_toBottomOf="@id/tvSignUp"
+        android:layout_marginStart="48dp"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvSignIn"
-        android:layout_margin="48dp">
+        app:layout_constraintTop_toBottomOf="@id/tvSignUp"
+        android:layout_margin="48dp"
+        android:orientation="vertical">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/username"
+            android:textStyle="bold"
+            android:fontFamily="@font/nunito_regular"
+            android:textSize="16sp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusBottomEnd="12dp"
+            >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Type your username"
+            android:textSize="12sp"
+            />
+        </com.google.android.material.textfield.TextInputLayout>
 
 
         <TextView
@@ -59,7 +82,7 @@
             android:textStyle="bold"
             android:fontFamily="@font/nunito_regular"
             android:textSize="16sp"
-            android:layout_marginTop="35dp"/>
+            android:layout_marginTop="10dp"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -76,7 +99,6 @@
                 android:layout_height="wrap_content"
                 android:hint="Your E-mail Address"
                 android:textSize="12sp"
-                android:inputType="textEmailAddress"
                 />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -87,7 +109,7 @@
             android:textSize="16sp"
             android:textStyle="bold"
             android:fontFamily="@font/nunito_regular"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="10dp" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -106,6 +128,35 @@
                 android:hint="Type your password"
                 android:textSize="12sp"
                 android:inputType="textPassword"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Confirm Password"
+            android:textStyle="bold"
+            android:fontFamily="@font/nunito_regular"
+            android:textSize="14sp"
+            android:layout_marginTop="10dp"/>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:passwordToggleEnabled="true"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtForgotPass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Retype your username"
+                android:textSize="12sp"
                 />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -146,45 +197,19 @@
 
         </LinearLayout>
 
-
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnSignin"
+            android:id="@+id/btnSignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="45dp"
+            android:layout_marginTop="20dp"
             android:fontFamily="@font/nunito_regular"
-            android:text="@string/sign_in"
+            android:text="@string/sign_up"
             android:textSize="20sp"
             app:backgroundTint="@color/blueButton" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_horizontal"
-            android:layout_marginTop="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/dont_have_an_account"
-                android:fontFamily="@font/nunito_regular"
-                android:textSize="16sp"/>
-
-            <TextView
-                android:id="@+id/tvLogin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/sign_up"
-                android:fontFamily="@font/nunito_regular"
-                android:textColor="@color/red"
-                android:layout_marginStart="5dp"/>
-
-        </LinearLayout>
 
 
 
     </LinearLayout>
-
+    
 
 </androidx.constraintlayout.widget.ConstraintLayout>
